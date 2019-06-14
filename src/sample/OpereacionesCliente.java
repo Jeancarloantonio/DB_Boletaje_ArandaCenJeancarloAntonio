@@ -48,7 +48,7 @@ public class OpereacionesCliente {
 
     public void getClienteById(){
 
-    }//DELETE
+    }
     public void deleteCompra(VistaCompra vistaCompra){
         try{
 
@@ -79,7 +79,6 @@ public class OpereacionesCliente {
 
     }
 
-    //insertar boleto
     public void insertBoleto(Boleto boleto,Seccion seccion,Compra compra){
         String query = "INSERT INTO seccion (seccionId,descripcion,precio)" +
                 "VALUES (?,?,?)";

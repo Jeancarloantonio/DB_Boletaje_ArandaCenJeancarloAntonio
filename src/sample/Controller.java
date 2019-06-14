@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -37,7 +36,7 @@ public class Controller implements Initializable {
     @FXML private Button boton1;
     @FXML private ComboBox combo1;
     @FXML private TableView table;
-
+//CREACION DE CLASES HEREDADAS DE OTRAS CLASES
     private OpereacionesCliente opereacionesCliente;
     private Cliente cliente;
     private Boleto boleto;
@@ -107,10 +106,10 @@ public class Controller implements Initializable {
         label1.setText(fecha);
 
         combo1.getItems().add("Boleto Sin Pagar");
-        combo1.getItems().add("Boleto Pagado");
-        combo1.setValue("Boleto Sin Pagar");
+        combo1.getItems().add("Adeudo");
+        combo1.setValue("Adeudo");
 
-//Checo que los dato sno sobrepasen de los 8 bytes
+//Checo que los datos no sobrepasen de 9 datos distintos
         text1.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -132,7 +131,7 @@ public class Controller implements Initializable {
                 }
             }
         });
-
+//BOLEANO
         combo1.valueProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
@@ -178,6 +177,7 @@ public class Controller implements Initializable {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            //INSERTA LOS DATOS
             opereacionesCliente.insertCliente(cliente);
             opereacionesCliente.insertBoleto(boleto,seccion,compra);
             limpiarCampos();

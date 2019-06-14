@@ -1,6 +1,5 @@
 package sample;
 
-import com.mysql.cj.xdevapi.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -9,15 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import javax.security.auth.login.FailedLoginException;
 import java.net.URL;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.ResourceBundle;
 
-public class UpdateController implements Initializable {
-//SCENE BUILDER
+public class    UpdateController implements Initializable {
+
     @FXML private TextField text1;
     @FXML private TextField text2;
     @FXML private TextField text3;
@@ -33,7 +29,6 @@ public class UpdateController implements Initializable {
     private Controller controller;
     private VistaCompra vistaCompra;
     private OpereacionesCliente opereacionesCliente;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -69,8 +64,7 @@ public class UpdateController implements Initializable {
             seccion.setSeccionId(vistaCompra.getSeccionId());
             seccion.setDescipcion(text7.getText());
             seccion.setPrecio(Float.parseFloat(text8.getText()));
-
-
+            //MODIFICO LOS REGISTROS
             opereacionesCliente.updateRegistro(compra,cliente,seccion);
             controller.getRegistros();
 //EVENTO DEL BOTTON QUE AL SER PRESIONADO CIERRE LA VENTANA
@@ -80,19 +74,18 @@ public class UpdateController implements Initializable {
         });
 
     }
-//AL MOMENTO DE GUARDAR CIERRA Y EJECUTA EN EL PANE ORIGINAL
+
     public void setController(Controller controller,VistaCompra vistaCompra){
         this.controller = controller;
         this.vistaCompra = vistaCompra;
         this.cargarDatos();
     }
-
+// MOSTRAR LOS DATOS
     public void cargarDatos(){
         text1.setText(vistaCompra.getClienteID()+"");
         text2.setText(vistaCompra.getClienteNombre());
         text3.setText(vistaCompra.getClienteApellidos());
         text4.setText(vistaCompra.getClienteDireccion());
-
 
         text5.setText(vistaCompra.getNumBoleto()+"");
         if(vistaCompra.isPagado()){

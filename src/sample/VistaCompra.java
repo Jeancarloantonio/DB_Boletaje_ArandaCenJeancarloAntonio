@@ -18,7 +18,7 @@ public class VistaCompra {
     private  Button botonUpdate;
     private Button botonDelete;
 
-    public VistaCompra(){//CREAMOS LOS BOLETOS PARA LA TABLE VIEW
+    public VistaCompra(){//CREAMOS LOS BOTONES PARA LA TABLE VIEW
         this.botonUpdate = new Button("Modificar");
         this.botonDelete = new Button("Eliminar");
     }
